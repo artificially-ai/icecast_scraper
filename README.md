@@ -31,4 +31,4 @@ No pip installed on your Mac yet? So do it:
 
 - sudo easy_install pip
 
-You are now goot to go.
+You are now good to go.
