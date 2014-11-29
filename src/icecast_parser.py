@@ -9,17 +9,14 @@ WIDTH = '130'
 
 def parse_content():
     #Do not forget the trailing / in the URL, otherwise it won't work
-    rs = requests.get('http://your_host.com/admin/', auth=HTTPBasicAuth('admin', 'pass'))
+    rs = requests.get('http://soundspectra.com/admin/', auth=HTTPBasicAuth('admin', 'n0h@ck3!#'))
     html_data = rs.text
     
     soup = BeautifulSoup(html_data)
 
-    details = {'stream_details' : []}
-    details_list = []
-
     alt = 1
     key = None
-
+    details = {}
     for td in soup.find_all('td'):
     
         if alt:
@@ -30,10 +27,8 @@ def parse_content():
             if td.get('class') and td.get('class')[0] == 'streamdata':
                 alt = not alt
                 value = td.text
-                d = {key : value}
-                details_list.append(d)
+                details[key] = value
 
-    details['stream_details'] = details_list
     details_json = json.dumps(details)
     
     return  details_json
