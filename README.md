@@ -27,7 +27,7 @@ For that you have to use pip, since easy_install doesn't put the Beautiful Soup 
 
 - sudo pip install beautifulsoup4
 
-No pip installed on your Mac? So do it:
+No pip installed on your Mac yet? So do it:
 
 - sudo easy_install pip
 
