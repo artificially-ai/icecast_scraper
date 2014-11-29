@@ -29,7 +29,8 @@ def parse_content():
                 details_list.append(d)
 
     details['stream_details'] = details_list
-    print details
+    return  details
 
 if __name__ == '__main__':
-    parse_content()
+    details = parse_content()
+    print details
