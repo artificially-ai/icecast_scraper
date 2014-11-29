@@ -31,4 +31,4 @@ No pip installed on your Mac yet? So do it:
 
 - sudo easy_install pip
 
-You are now good to go.
+Now install BS4 and you are now good to go.
