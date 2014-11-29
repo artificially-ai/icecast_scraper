@@ -9,7 +9,7 @@ Requirements
 - Beautiful Soup 4
 - Python 2.7
 
-Installing Beautiful Soup 4 on Linux
+Installing Beautiful Soup 4 on Debian Wheezy
 ==============
 
 If you already have Python Setup Tools (easy_install), please do:
