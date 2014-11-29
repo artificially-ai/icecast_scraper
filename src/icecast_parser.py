@@ -29,7 +29,9 @@ def parse_content():
                 details_list.append(d)
 
     details['stream_details'] = details_list
-    return  details
+    details_json = json.dumps(details)
+    
+    return  details_json
 
 if __name__ == '__main__':
     details = parse_content()
