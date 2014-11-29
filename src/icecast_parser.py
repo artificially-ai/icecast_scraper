@@ -3,8 +3,13 @@ from requests.auth import HTTPBasicAuth
 import requests
 import json
 
+#The column width in IceCast admin page. Looks weird to make it based on a width,
+#but they use the same value for all columns.
+WIDTH = '130'
+
 def parse_content():
-    rs = requests.get('http://your_host', auth=HTTPBasicAuth('user', 'pass'))
+    #Do not forget the trailing / in the URL, otherwise it won't work
+    rs = requests.get('http://your_host.com/admin/', auth=HTTPBasicAuth('admin', 'pass'))
     html_data = rs.text
     
     soup = BeautifulSoup(html_data)
@@ -18,14 +23,14 @@ def parse_content():
     for td in soup.find_all('td'):
     
         if alt:
-            if td.get('width') and td.get('width') == '130':
+            if td.get('width') and td.get('width') == WIDTH:
                 key = td.text
                 alt = not alt
         elif not alt:
             if td.get('class') and td.get('class')[0] == 'streamdata':
                 alt = not alt
                 value = td.text
-                d = {key.encode("utf-8") : value.encode("utf-8")}
+                d = {key : value}
                 details_list.append(d)
 
     details['stream_details'] = details_list
@@ -35,4 +40,5 @@ def parse_content():
 
 if __name__ == '__main__':
     details = parse_content()
+    
     print details
