@@ -4,7 +4,7 @@ import requests
 import json
 
 def parse_content():
-    rs = requests.get('http://soundspectra.com/admin/', auth=HTTPBasicAuth('admin', 'h@ckm3'))
+    rs = requests.get('http://your_host', auth=HTTPBasicAuth('user', 'pass'))
     html_data = rs.text
     
     soup = BeautifulSoup(html_data)
