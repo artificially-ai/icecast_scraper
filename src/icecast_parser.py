@@ -9,7 +9,7 @@ WIDTH = '130'
 
 def parse_content():
     #Do not forget the trailing / in the URL, otherwise it won't work
-    rs = requests.get('http://soundspectra.com/admin/', auth=HTTPBasicAuth('admin', 'n0h@ck3!#'))
+    rs = requests.get('http://your_host.com/admin/', auth=HTTPBasicAuth('user', 'pass'))
     html_data = rs.text
     
     soup = BeautifulSoup(html_data)
